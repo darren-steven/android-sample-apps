@@ -68,6 +68,7 @@ task copyTask(type: Copy) {
     from new File(vendorDir, 'Freewheel/Android_AdManagerDistribution/FWAdManager.jar')
     from new File(vendorDir, 'Google/ima-android-v385.jar')
     from new File(vendorDir, 'Ooyala/OoyalaSkinSDK-Android/react-native-0.55.4.aar')
+    from new File(vendorDir, 'splunk/mint-5.2.2.jar')
     into new File(projectDir, './libs')
     doLast {
         println "Jars updated."
