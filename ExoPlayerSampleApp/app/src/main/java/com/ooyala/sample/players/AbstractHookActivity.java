@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.KeyEvent;
 
@@ -26,7 +27,7 @@ import static android.content.pm.PackageManager.PERMISSION_GRANTED;
  * This class asks permission for WRITE_EXTERNAL_STORAGE. We need it for automation hooks
  * as we need to write into the SD card and automation will parse this file.
  */
-public abstract class AbstractHookActivity extends Activity implements Observer, DefaultHardwareBackBtnHandler {
+public abstract class AbstractHookActivity extends AppCompatActivity implements Observer, DefaultHardwareBackBtnHandler {
 	private static final int PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE = 1;
 	String TAG = this.getClass().toString();
 	protected OoyalaSkinLayoutController playerLayoutController;

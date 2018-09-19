@@ -1,62 +1,62 @@
 apply plugin: 'com.android.application'
 
 android {
-  compileSdkVersion 27
-  buildToolsVersion '27.0.3'
+    compileSdkVersion 27
+    buildToolsVersion '27.0.3'
 
-  defaultConfig {
-    applicationId "com.ooyala.sample.ExoPlayerSampleApp"
-    minSdkVersion 16
-    targetSdkVersion 27
+    defaultConfig {
+        applicationId "com.ooyala.sample.ExoPlayerSampleApp"
+        minSdkVersion 16
+        targetSdkVersion 27
 
-    // Added due to https://github.com/facebook/react-native/issues/2814
-    ndk {
-      // React Native for Android is incompatible with 3rd-party 64-bit libraries.
-      abiFilters "armeabi-v7a", "x86"
-    }
+        // Added due to https://github.com/facebook/react-native/issues/2814
+        ndk {
+            // React Native for Android is incompatible with 3rd-party 64-bit libraries.
+            abiFilters "armeabi-v7a", "x86"
+        }
 
 // Uncomment if you need multidex
-    multiDexEnabled true
-  }
-
-  packagingOptions {
-    exclude 'META-INF/LICENSE.txt'
-    exclude 'META-INF/NOTICE.txt'
-  }
-
-  buildTypes {
-    release {
-      minifyEnabled false
-      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        multiDexEnabled true
     }
-  }
+
+    packagingOptions {
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
 // Uncomment if you need multidex
-  dexOptions {
+    dexOptions {
 //    javaMaxHeapSize "4g"
-    jumboMode true
-  }
+        jumboMode true
+    }
 }
 
 
 task copyAssetsTask(type: Copy) {
-  from new File(projectDir, '../../vendor/Ooyala/OoyalaSkinSDK-Android/index.android.jsbundle')
-  from new File(projectDir, '../../vendor/Ooyala/OoyalaSkinSDK-Android/skin-config/skin.json')
-  into new File(projectDir, './src/main/assets')
-  println "Assets updated."
+    from new File(projectDir, '../../vendor/Ooyala/OoyalaSkinSDK-Android/index.android.jsbundle')
+    from new File(projectDir, '../../vendor/Ooyala/OoyalaSkinSDK-Android/skin-config/skin.json')
+    into new File(projectDir, './src/main/assets')
+    println "Assets updated."
 }
 tasks.copyAssetsTask.execute()
 
 task copySkinConfigTask(type: Copy) {
-  from new File(projectDir, '../../vendor/Ooyala/OoyalaSkinSDK-Android/skin-config')
-  into new File(projectDir, './src/main/assets/skin-config')
-  println "copySkinConfigTask updated."
+    from new File(projectDir, '../../vendor/Ooyala/OoyalaSkinSDK-Android/skin-config')
+    into new File(projectDir, './src/main/assets/skin-config')
+    println "copySkinConfigTask updated."
 }
 tasks.copySkinConfigTask.execute()
 
 task copyFontsAssetsTask(type: Copy) {
-  from new File(projectDir, '../../vendor/Ooyala/OoyalaSkinSDK-Android/fonts')
-  into new File(projectDir, './src/main/assets/fonts')
-  println "font Assets updated."
+    from new File(projectDir, '../../vendor/Ooyala/OoyalaSkinSDK-Android/fonts')
+    into new File(projectDir, './src/main/assets/fonts')
+    println "font Assets updated."
 }
 tasks.copyFontsAssetsTask.execute()
 
@@ -88,12 +88,13 @@ dependencies {
 // Uncomment if you need multidex
 //  implementation 'com.android.support:multidex:1.0.1'
 
-  implementation files('libs/FWAdManager.jar')
-  implementation files('libs/OoyalaFreewheelSDK.jar')
-  implementation files('libs/OoyalaIMASDK.jar')
-  implementation files('libs/ima-android-v385.jar')
-  implementation files('libs/OoyalaSDK.aar')
-  implementation 'com.google.android.exoplayer:exoplayer:2.6.1'
+    implementation files('libs/FWAdManager.jar')
+    implementation files('libs/OoyalaFreewheelSDK.jar')
+    implementation files('libs/OoyalaIMASDK.jar')
+    implementation files('libs/ima-android-v385.jar')
+    implementation files('libs/OoyalaSDK.aar')
+    implementation files('libs/mint-5.2.2.jar')
+    implementation 'com.google.android.exoplayer:exoplayer:2.6.1'
 
 // For development purposes only
 //  implementation project(':core')
@@ -115,6 +116,9 @@ dependencies {
     implementation 'org.webkit:android-jsc:r174650'
     implementation 'com.facebook.stetho:stetho:1.2.0'
     implementation 'com.facebook.stetho:stetho-okhttp:1.2.0'
-    implementation(group:'com.facebook', name:'react-native', version:'0.55.4', ext:'aar')
+    implementation(group: 'com.facebook', name: 'react-native', version: '0.55.4', ext: 'aar')
+    implementation('com.telstra.android.streaming.lteb:streamingsdk:2.0.0') {
+        changing = true
+    }
 
 }

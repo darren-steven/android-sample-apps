@@ -34,6 +34,14 @@ allprojects {
         maven { url "https://maven.google.com" }
         jcenter()
         google()
+        maven {
+            url "https://api.bitbucket.org/1.0/repositories/bigpond/lteb-repo/raw/releases/"
+            credentials {
+                username System.getenv("lteb_user")
+                password System.getenv("lteb_user_password")
+            }
+
+        }
     }
 }
 
