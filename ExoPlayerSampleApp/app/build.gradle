@@ -5,7 +5,7 @@ android {
     buildToolsVersion '27.0.3'
 
     defaultConfig {
-        applicationId "com.ooyala.sample.ExoPlayerSampleApp"
+        applicationId "com.ooyala.sample.ExoPlayerSampleApp.telstra"
         minSdkVersion 16
         targetSdkVersion 27
 
@@ -104,6 +104,8 @@ dependencies {
     implementation 'com.google.android.gms:play-services-ads:12.0.0'
     implementation 'com.android.support:appcompat-v7:27.1.1'
     implementation 'com.android.support:recyclerview-v7:27.1.1'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+
 
     // React-Native dependencies
     implementation 'javax.inject:javax.inject:1'
@@ -118,7 +120,10 @@ dependencies {
     implementation 'com.facebook.stetho:stetho:1.2.0'
     implementation 'com.facebook.stetho:stetho-okhttp:1.2.0'
     implementation(group: 'com.facebook', name: 'react-native', version: '0.55.4', ext: 'aar')
-    implementation('com.telstra.android.streaming.lteb:streamingsdk:2.0.0') {
+
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    implementation('com.telstra.android.streaming.lteb:streamingsdk:2.0.1') {
         changing = true
     }
 

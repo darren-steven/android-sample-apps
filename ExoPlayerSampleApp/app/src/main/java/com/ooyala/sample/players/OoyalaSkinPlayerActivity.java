@@ -5,6 +5,7 @@ import android.util.Base64;
 import android.util.Log;
 
 import com.ooyala.android.DefaultPlayerInfo;
+import com.ooyala.android.Environment;
 import com.ooyala.android.OoyalaPlayer;
 import com.ooyala.android.PlayerDomain;
 import com.ooyala.android.configuration.Options;
@@ -13,7 +14,7 @@ import com.ooyala.android.skin.OoyalaSkinLayout;
 import com.ooyala.android.skin.OoyalaSkinLayoutController;
 import com.ooyala.android.skin.configuration.SkinOptions;
 import com.ooyala.sample.R;
-import com.telstra.android.media.capabiliites.CapabilityUtils;
+import com.telstra.android.media.capabilities.CapabilityUtils;
 import com.telstra.android.streaming.BroadcastSessionManager;
 import com.telstra.android.streaming.StreamSessionManager;
 
@@ -101,6 +102,8 @@ public class OoyalaSkinPlayerActivity extends AbstractHookActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.player_skin_simple_layout);
+
+        OoyalaPlayer.setEnvironment(Environment.EnvironmentType.STAGING);
 
         // LTE-B Setup. Relies on Android Lifecycle from AppCompatActivity to start/stop broadcast with activity/host
         // DDMM URL's will contain the LTE-B config
