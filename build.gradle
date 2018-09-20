@@ -47,6 +47,14 @@ allprojects {
         maven {
             url "https://api.bitbucket.org/1.0/repositories/bigpond/lteb-repo/raw/releases/"
             credentials {
+                username System.getenv("bamboo_lteb_user")
+                password System.getenv("bamboo_lteb_user_password")
+            }
+
+        }
+        maven {
+            url "https://api.bitbucket.org/1.0/repositories/bigpond/lteb-repo/raw/snapshots/"
+            credentials {
                 username System.getenv("lteb_user")
                 password System.getenv("lteb_user_password")
             }
