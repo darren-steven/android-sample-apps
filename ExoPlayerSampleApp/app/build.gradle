@@ -8,6 +8,7 @@ android {
         applicationId "com.ooyala.sample.ExoPlayerSampleApp.telstra"
         minSdkVersion 16
         targetSdkVersion 27
+        versionCode bambooBuild
 
         // Added due to https://github.com/facebook/react-native/issues/2814
         ndk {
@@ -105,7 +106,6 @@ dependencies {
     implementation 'com.android.support:appcompat-v7:27.1.1'
     implementation 'com.android.support:recyclerview-v7:27.1.1'
     implementation 'com.android.support.constraint:constraint-layout:1.1.2'
-
 
     // React-Native dependencies
     implementation 'javax.inject:javax.inject:1'

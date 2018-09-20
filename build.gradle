@@ -1,5 +1,15 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
+// bambooBuild is our version code
+ext.bambooBuild = System.getenv("bamboo_buildNumber")
+ext.snapshot = "-SNAPSHOT"
+if (ext.bambooBuild == null) {
+    ext.bambooBuild = 100 // Developer build
+} else {
+    ext.bambooBuild = System.getenv("bamboo_buildNumber").toInteger() + 500
+    ext.snapshot = ""
+}
+
 buildscript {
     ext.kotlin_version = '1.1.51'
     repositories {
