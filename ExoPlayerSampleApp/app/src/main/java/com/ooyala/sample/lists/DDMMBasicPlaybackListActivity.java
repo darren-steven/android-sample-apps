@@ -54,6 +54,7 @@ public class DDMMBasicPlaybackListActivity extends Activity implements OnItemCli
 
         selectionMap.put("2018 Grand Final: Fever v Lightning (Replay)", new PlayerSelectionOption("9sOGwyZzE62yvirCUvl-uHeOZou7LMBa", "duaGYxOuOYM6TOUkVF-lvVciGTP4", "http://www.ooyala.com", OoyalaSkinPlayerActivity.class));
         selectionMap.put("2017 Rd 5: Giants v Thunderbirds (Hls)", new PlayerSelectionOption("VtdWFlYTE6Hlu6LfhlY8t2VEjP62Rf9M", "duaGYxOuOYM6TOUkVF-lvVciGTP4", "http://www.ooyala.com", OoyalaSkinPlayerActivity.class));
+        selectionMap.put("AFL Model Test SC5", new PlayerSelectionOption("g4aDNjZTE6LHdqYEC-HEsEiROwIsugPQ", "Zha2IxOrpV-sPLqnCop1Lz0fZ5Gi", "http://www.ooyala.com", OoyalaSkinPlayerActivity.class));
 
 
 
