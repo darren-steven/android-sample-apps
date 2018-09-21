@@ -54,8 +54,7 @@ public class DDMMBasicPlaybackListActivity extends Activity implements OnItemCli
 
         selectionMap.put("2018 Grand Final: Fever v Lightning (Replay)", new PlayerSelectionOption("9sOGwyZzE62yvirCUvl-uHeOZou7LMBa", "duaGYxOuOYM6TOUkVF-lvVciGTP4", "http://www.ooyala.com", OoyalaSkinPlayerActivity.class));
         selectionMap.put("2017 Rd 5: Giants v Thunderbirds (Hls)", new PlayerSelectionOption("VtdWFlYTE6Hlu6LfhlY8t2VEjP62Rf9M", "duaGYxOuOYM6TOUkVF-lvVciGTP4", "http://www.ooyala.com", OoyalaSkinPlayerActivity.class));
-        selectionMap.put("AFL Model Test SC5", new PlayerSelectionOption("g4aDNjZTE6LHdqYEC-HEsEiROwIsugPQ", "Zha2IxOrpV-sPLqnCop1Lz0fZ5Gi", "http://www.ooyala.com", OoyalaSkinPlayerActivity.class));
-
+        selectionMap.put("AFL Model Test SC5", new PlayerSelectionOption("g4aDNjZTE6LHdqYEC-HEsEiROwIsugPQ", "Zha2IxOrpV-sPLqnCop1Lz0fZ5Gi", "http://www.ooyala.com", "urn:oma:bcast:ext_bsc_embms:ServiceClass1:1.0", "urn:production:telstra:ProductionService3:SC3:UserService3", OoyalaSkinPlayerActivity.class));
 
 
         setContentView(R.layout.list_activity_layout);
@@ -98,6 +97,8 @@ public class DDMMBasicPlaybackListActivity extends Activity implements OnItemCli
         intent.putExtra("selection_name", selectionAdapter.getItem(pos));
         intent.putExtra("pcode", selection.getPcode());
         intent.putExtra("domain", selection.getDomain());
+        intent.putExtra("serviceId", selection.getServiceId());
+        intent.putExtra("serviceClass", selection.getServiceClass());
         startActivity(intent);
         return;
     }

@@ -105,11 +105,13 @@ public class OoyalaSkinPlayerActivity extends AbstractHookActivity {
 
         OoyalaPlayer.setEnvironment(Environment.EnvironmentType.STAGING);
 
+        String serviceClass = getIntent().getExtras().getString("serviceClass");
+        String serviceId = getIntent().getExtras().getString("serviceid");
+
         // LTE-B Setup. Relies on Android Lifecycle from AppCompatActivity to start/stop broadcast with activity/host
         // DDMM URL's will contain the LTE-B config
         broadcastSessionManager = new BroadcastSessionManager(getApplicationContext(), getLifecycle());
         // For DDMM, no need to startSession explicitly
-        broadcastSessionManager.startSession(new String[]{"urn:oma:bcast:ext_bsc_embms:ServiceClass1:1.0"}, false);
 
         // TODO = use auto flag and get URL for DDMM startups
         streamSessionManager = new StreamSessionManager.Builder(new StreamSessionManager())
@@ -118,7 +120,12 @@ public class OoyalaSkinPlayerActivity extends AbstractHookActivity {
                 .withLTEB(broadcastSessionManager, true) // TODO: perhaps autostart should come from remote config
                 .build();
 
-        streamSessionManager.setServiceId("urn:production:telstra:ProductionService3:SC3:UserService3");
+        if (serviceClass != null) {
+            broadcastSessionManager.startSession(new String[]{serviceClass}, false);
+        }
+        if (serviceId != null) {
+            streamSessionManager.setServiceId(serviceId);
+        }
 
 
         completePlayerSetup(asked);

@@ -6,7 +6,7 @@ ext.snapshot = "-SNAPSHOT"
 if (ext.bambooBuild == null) {
     ext.bambooBuild = 100 // Developer build
 } else {
-    ext.bambooBuild = System.getenv("bamboo_buildNumber").toInteger() + 500
+    ext.bambooBuild = System.getenv("bamboo_buildNumber").toInteger() + 1500
     ext.snapshot = ""
 }
 
@@ -47,8 +47,8 @@ allprojects {
         maven {
             url "https://api.bitbucket.org/1.0/repositories/bigpond/lteb-repo/raw/releases/"
             credentials {
-                username System.getenv("bamboo_lteb_user")
-                password System.getenv("bamboo_lteb_user_password")
+                username System.getenv("lteb_user")
+                password System.getenv("lteb_user_password")
             }
 
         }

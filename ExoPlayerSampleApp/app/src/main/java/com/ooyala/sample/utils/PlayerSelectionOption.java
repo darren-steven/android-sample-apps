@@ -11,12 +11,23 @@ public class PlayerSelectionOption {
   private Class <? extends Activity> activity;
   private String pcode;
   private String domain;
+  private String serviceClass;
+  private String serviceId;
 
   public PlayerSelectionOption(String embedCode, String pcode, String domain, Class<? extends Activity> activity) {
     this.embedCode = embedCode;
     this.activity = activity;
     this.pcode = pcode;
     this.domain = domain;
+  }
+
+  public PlayerSelectionOption(String embedCode, String pcode, String domain, String serviceClass, String serviceId, Class<? extends Activity> activity) {
+    this.embedCode = embedCode;
+    this.activity = activity;
+    this.pcode = pcode;
+    this.domain = domain;
+    this.serviceClass = serviceClass;
+    this.serviceId = serviceId;
   }
 
   /**
@@ -49,5 +60,13 @@ public class PlayerSelectionOption {
    */
   public Class <? extends Activity> getActivity() {
     return this.activity;
+  }
+
+  public String getServiceClass() {
+    return serviceClass;
+  }
+
+  public String getServiceId() {
+    return serviceId;
   }
 }
