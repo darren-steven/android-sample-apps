@@ -69,7 +69,11 @@ public class DDMMInfoActivity extends AppCompatActivity {
 
         telstraCheckBox.setChecked(CapabilityUtils.hasTelstraSIM(this));
 
-        String output = String.format("SDK Version %s\nUser: %s\n%s", BuildConfig.VERSION_NAME, FirebaseInstanceId.getInstance().getId(), CapabilityUtils.capabilitesToJson(CapabilityUtils.getCapabilities(this)));
+        String output = String.format("App Version: %s\nSDK Version: %s\nUser: %s\n%s",
+                com.ooyala.sample.BuildConfig.VERSION_NAME,
+                BuildConfig.VERSION_NAME,
+                FirebaseInstanceId.getInstance().getId(),
+                CapabilityUtils.capabilitesToJson(CapabilityUtils.getCapabilities(this)));
 
         detailsTextView.setText(output);
         Logger.debug("Capabilities: %s", output);

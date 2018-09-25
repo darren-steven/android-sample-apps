@@ -10,6 +10,10 @@ if (ext.bambooBuild == null) {
     ext.snapshot = ""
 }
 
+ext.majorVersion = 2
+ext.minorVersion = 0
+ext.buildVersion = 5
+
 buildscript {
     ext.kotlin_version = '1.1.51'
     repositories {
